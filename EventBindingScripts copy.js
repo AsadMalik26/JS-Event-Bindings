@@ -18,26 +18,32 @@ function update() {
 }
 
 // efforts for Clean code
+console.log("Starting");
 function handleAddNewToDo() {
   console.log("Handling button for Add new Todo");
 }
 
 function doBindings() {
+  console.log("Bindings");
   var btn = document.getElementById("btnAdd");
   // now we are assigning the operation, not calling the finction here below:
   btn.onclick = handleAddNewToDo;
 }
-window.onload = function() {
-    // do all bindings here
-    var btn = document.getElementById("btnAdd");
-    // now we are assigning the operation, not calling the finction here below:
-    btn.onclick = handleAddNewToDo;
-    /*  you can write a full anonymous function here (where are you calling the functions for assigning) instead of writing seperate functions and then calling them
-     e.g
-     btn.click = funtion() {
-         statements here...
-     } */
-  }
 
-  /* Next we will learn add/remove tags, handle the events on tags etc
-  then will move to JSQuery */
+//the below line will not do binding as the document is yet not loaded, so resolve this
+// doBindings();
+// solution
+window.onload = doBindings; // it means execute this function when the html document is fully prepared
+console.log('Finished');
+
+// msgs sequence: Starting>Finished>Bindings
+// instead of Starting>Bindings>finished
+// this is because asyncronyous call
+
+// there is another way to define the onload funtions
+// define the anonymos function which is called window.onload and khatam tata bye bye after its work 
+window.onload = function() {
+  var btn = document.getElementById("btnAdd");
+  // now we are assigning the operation, not calling the finction here below:
+  btn.onclick = handleAddNewToDo;
+}

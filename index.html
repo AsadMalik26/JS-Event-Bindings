@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./EventBindingScripts.js"></script>
     <title>JS-Event-Binding-Practice</title>
-</head>
-<body>
-    <button>Click Me</button>
-</body>
+  </head>
+  <body>
+    <h1>Event Binding practice</h1>
+    <h2>a sample button</h2>
+    <button
+      onclick="btnClicked()"
+      onmousemove="console.log('Mouse Over')"
+      onmouseout="console.log('Mouse left')"
+    >
+      Click Me
+    </button>
+    <p>Use/View console for above above button</p>
+
+    <h2>Button used for a simple form</h2>
+    <!-- We want that everything we write in input show on concole
+    so navigate to related function -->
+    <input type="text" id="myinput" />
+    <button onclick="update()">Update results</button>
+    <!-- we want that the inner HTML i.e msg/text in the tag should be overwritten by text in the input field
+    so navigate to related fuction of button -->
+    <span id="output">Result will show here</span>
+
+    <p>
+      What javascript does? <br />
+      It created a tree like
+      <img src="./image/tree.png" alt="A tree example" width="300px" />
+    </p>
+    
+    <!-- There is a problem in above code that is we are writting Javascript in html code which is a bod approach -->
+
+
+    <!-- Now we have to write a clean code for html only and the script code will be called as like we call CSS code
+    So, lets do it -->
+    <br> <br>
+    <h2>More example with clean code</h2>
+    <input type="text" id="newToDo">
+    <!-- the below button is using bad approack -->
+    <!-- <button id="btnAdd" onclick="handleAddNewToDo()">Add new ToDo</button> -->
+    <!-- now we made a clean button -->
+    <button id="btnAdd">Add new ToDo</button>
+  </body>
 </html>
